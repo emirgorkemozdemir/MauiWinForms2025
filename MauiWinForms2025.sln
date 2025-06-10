@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiWinForms2025", "MauiWinForms2025\MauiWinForms2025.csproj", "{76E652F1-2427-42DF-B2B2-3B0AC621FDED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76E652F1-2427-42DF-B2B2-3B0AC621FDED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E652F1-2427-42DF-B2B2-3B0AC621FDED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E652F1-2427-42DF-B2B2-3B0AC621FDED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E652F1-2427-42DF-B2B2-3B0AC621FDED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A69E501-BDAA-4B36-857A-8C8C6D671EAB}
+	EndGlobalSection
+EndGlobal
