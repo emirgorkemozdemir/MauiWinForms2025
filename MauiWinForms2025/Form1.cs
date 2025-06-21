@@ -55,5 +55,13 @@ namespace MauiWinForms2025
         {
             MessageBox.Show("Þu anda textbox'ta þu yazýyor : " + textBox1.Text);
         }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
     }
 }

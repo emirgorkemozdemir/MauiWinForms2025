@@ -40,6 +40,7 @@
             listBox1 = new ListBox();
             dateTimePicker1 = new DateTimePicker();
             textBox1 = new TextBox();
+            btnGo = new Button();
             SuspendLayout();
             // 
             // btnTest
@@ -161,11 +162,22 @@
             textBox1.TabIndex = 11;
             textBox1.KeyUp += textBox1_KeyUp;
             // 
+            // btnGo
+            // 
+            btnGo.Location = new Point(380, 358);
+            btnGo.Name = "btnGo";
+            btnGo.Size = new Size(156, 44);
+            btnGo.TabIndex = 12;
+            btnGo.Text = "Diger sayfaya git";
+            btnGo.UseVisualStyleBackColor = true;
+            btnGo.Click += btnGo_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(679, 395);
+            ClientSize = new Size(733, 451);
+            Controls.Add(btnGo);
             Controls.Add(textBox1);
             Controls.Add(dateTimePicker1);
             Controls.Add(listBox1);
@@ -201,5 +213,6 @@
         private ListBox listBox1;
         private DateTimePicker dateTimePicker1;
         private TextBox textBox1;
+        private Button btnGo;
     }
 }
