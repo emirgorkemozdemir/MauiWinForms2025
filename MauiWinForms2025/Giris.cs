@@ -37,6 +37,9 @@ namespace MauiWinForms2025
             if (veri_okuyucu.HasRows)
             {
                 MessageBox.Show("Giriş başarılı");
+                this.Hide();
+                Kategoriler sayfa = new Kategoriler();
+                sayfa.Show();
             }
             else
             {
