@@ -33,6 +33,7 @@
             btnKayit = new Button();
             label1 = new Label();
             label2 = new Label();
+            btnGo = new Button();
             SuspendLayout();
             // 
             // tboxKullaniciAdi
@@ -54,7 +55,7 @@
             // 
             // btnKayit
             // 
-            btnKayit.Location = new Point(136, 205);
+            btnKayit.Location = new Point(121, 172);
             btnKayit.Name = "btnKayit";
             btnKayit.Size = new Size(113, 33);
             btnKayit.TabIndex = 2;
@@ -80,11 +81,22 @@
             label2.TabIndex = 4;
             label2.Text = "Şifre Giriniz";
             // 
+            // btnGo
+            // 
+            btnGo.Location = new Point(112, 232);
+            btnGo.Name = "btnGo";
+            btnGo.Size = new Size(113, 33);
+            btnGo.TabIndex = 5;
+            btnGo.Text = "Giris Sayfasına Git";
+            btnGo.UseVisualStyleBackColor = true;
+            btnGo.Click += btnGo_Click;
+            // 
             // Kayit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(373, 291);
+            Controls.Add(btnGo);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnKayit);
@@ -103,5 +115,6 @@
         private Button btnKayit;
         private Label label1;
         private Label label2;
+        private Button btnGo;
     }
 }

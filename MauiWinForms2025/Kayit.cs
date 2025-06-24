@@ -27,7 +27,7 @@ namespace MauiWinForms2025
             SqlCommand cmd_kontrol = new SqlCommand("SELECT UserName FROM TableUser WHERE UserName =@pka", BaglantiSinifi.baglanti);
 
             // Parametreye deger atıyorum
-            cmd_kontrol.Parameters.AddWithValue("@pka",tboxKullaniciAdi.Text.ToLower().Trim());
+            cmd_kontrol.Parameters.AddWithValue("@pka", tboxKullaniciAdi.Text.ToLower().Trim());
 
             // Komutumu yazdım, ancak bu komutun sonucu ya boş tablo olacak. Ya da bir tane veri bulacak.
             // O yüzden kullanıcı adı varsa , bu komutun sonucunun 1 gelmesi lazım.
@@ -40,13 +40,13 @@ namespace MauiWinForms2025
             bool sonuc;
 
             // HasRows satır bulabildi mi demek.
-            if (veri_okuyucu.HasRows== true)
+            if (veri_okuyucu.HasRows == true)
             {
-                sonuc= true;
+                sonuc = true;
             }
             else
             {
-                sonuc= false;
+                sonuc = false;
             }
 
 
@@ -60,7 +60,7 @@ namespace MauiWinForms2025
         {
             bool kullanici_adi_kontrol = Kullanici_Adi_Var_Mi();
 
-            if (kullanici_adi_kontrol ==false)
+            if (kullanici_adi_kontrol == false)
             {
                 // Her şeyden önce veritabanı işlemi varsa , baglantı açılır
                 BaglantiSinifi.baglanti.Open();
@@ -89,7 +89,14 @@ namespace MauiWinForms2025
                 MessageBox.Show("Bu kullanıcı adı zaten kullanılmaktadır!");
             }
 
-           
+
+        }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Giris giris_sayfasi = new Giris();
+            giris_sayfasi.Show();
         }
     }
 }
