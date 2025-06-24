@@ -39,6 +39,7 @@
             // 
             tboxKullaniciAdi.Location = new Point(67, 65);
             tboxKullaniciAdi.Name = "tboxKullaniciAdi";
+            tboxKullaniciAdi.PlaceholderText = "Kullanıcı adı giriniz";
             tboxKullaniciAdi.Size = new Size(241, 23);
             tboxKullaniciAdi.TabIndex = 0;
             // 
@@ -46,6 +47,8 @@
             // 
             tboxSifre.Location = new Point(67, 134);
             tboxSifre.Name = "tboxSifre";
+            tboxSifre.PasswordChar = '*';
+            tboxSifre.PlaceholderText = "Buraya şifre giriniz";
             tboxSifre.Size = new Size(241, 23);
             tboxSifre.TabIndex = 1;
             // 
