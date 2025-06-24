@@ -20,8 +20,7 @@ namespace MauiWinForms2025
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            // Veritabanı işlemi varsa öncelikle baglantıyı açıyorum
-            BaglantiSinifi.baglanti.Open();
+            BaglantiSinifi.baglantiyi_kontrol_et();
 
             // Komut oluşturuyorum
             SqlCommand cmd_giris = new SqlCommand("SELECT UserName,UserPassword FROM TableUser WHERE UserName=@pka AND UserPassword =@psifre", BaglantiSinifi.baglanti);
@@ -34,7 +33,10 @@ namespace MauiWinForms2025
             SqlDataReader veri_okuyucu = cmd_giris.ExecuteReader();
 
             // DataReader komutu çalıştırdı ve sonucu aldı. Buldugu sonucun adedi 1 ise giriş başarılı , 0 ise başarısız diyecegiz
-            if (veri_okuyucu.HasRows)
+            bool sonuc = veri_okuyucu.HasRows;
+
+            veri_okuyucu.Close();
+            if (sonuc== true)
             {
                 MessageBox.Show("Giriş başarılı");
                 this.Hide();
@@ -46,8 +48,6 @@ namespace MauiWinForms2025
                 MessageBox.Show("Giriş başarısız");
             }
 
-            veri_okuyucu.Close();
-            BaglantiSinifi.baglanti.Close();
         }
 
         private void btnGo_Click(object sender, EventArgs e)

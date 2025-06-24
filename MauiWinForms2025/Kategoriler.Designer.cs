@@ -48,6 +48,7 @@
             Controls.Add(dataGridView1);
             Name = "Kategoriler";
             Text = "Kategoriler";
+            Load += Kategoriler_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

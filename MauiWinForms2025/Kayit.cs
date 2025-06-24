@@ -20,8 +20,7 @@ namespace MauiWinForms2025
 
         private bool Kullanici_Adi_Var_Mi()
         {
-            // Veritabanı işlemi yaptıgım için öncelikle baglantıyı açıyorum
-            BaglantiSinifi.baglanti.Open();
+            BaglantiSinifi.baglantiyi_kontrol_et();
 
             // Komut oluşturuyorum. Komutun içerisine durumuma göre bir query yazıyorum.
             SqlCommand cmd_kontrol = new SqlCommand("SELECT UserName FROM TableUser WHERE UserName =@pka", BaglantiSinifi.baglanti);
@@ -52,7 +51,6 @@ namespace MauiWinForms2025
 
             // İşlem bittikten sonra data reader'Ların kapatılması gerekmekte.
             veri_okuyucu.Close();
-            BaglantiSinifi.baglanti.Close();
             return sonuc;
         }
 
@@ -62,8 +60,7 @@ namespace MauiWinForms2025
 
             if (kullanici_adi_kontrol == false)
             {
-                // Her şeyden önce veritabanı işlemi varsa , baglantı açılır
-                BaglantiSinifi.baglanti.Open();
+                BaglantiSinifi.baglantiyi_kontrol_et();
 
                 // Burada yaptıgım işlem gözünüzde veritabanına gidip new query demek gibi
                 // canlanabilir. Yani yeni bir sorgu (query/command) oluşturuyoruz.
@@ -78,9 +75,6 @@ namespace MauiWinForms2025
 
                 // gözünüzde yukarıdaki execute tuşuna basılmış gibi düşünebilirsiniz.
                 cmd_kayit.ExecuteNonQuery();
-
-                // unutmadan veritabanı baglantısını kapatıyorum
-                BaglantiSinifi.baglanti.Close();
 
                 MessageBox.Show("Kayıt başarılı");
             }
