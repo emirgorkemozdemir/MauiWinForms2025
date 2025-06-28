@@ -18,11 +18,11 @@ namespace MauiWinForms2025
             InitializeComponent();
         }
 
-        private void Kategoriler_Load(object sender, EventArgs e)
+        private void KategorileriYukle()
         {
             BaglantiSinifi.baglantiyi_kontrol_et();
 
-            SqlCommand cmd_yukle = new SqlCommand("SELECT * FROM TableCategory",BaglantiSinifi.baglanti);
+            SqlCommand cmd_yukle = new SqlCommand("SELECT * FROM TableCategory", BaglantiSinifi.baglanti);
 
             // Şu ana kadar gördügümüz kısımlardan biraz daha farklı olacak çünkü toplu olarak veri okuyoruz.
             // İlk olarak veritabanından gelen verilerin türlerini buraya dönüştürmemiz gerekiyor.
@@ -39,7 +39,68 @@ namespace MauiWinForms2025
             // Son olarak sonucu datagrid'e yansıtıyorum
             dataGridView1.DataSource = tablo;
 
-        
+            // ilk satırı gizliyorum
+            dataGridView1.Columns[0].Visible = false;
+        }
+
+        private void Kategoriler_Load(object sender, EventArgs e)
+        {
+            KategorileriYukle();
+        }
+
+        private void btnEkle_Click(object sender, EventArgs e)
+        {
+            BaglantiSinifi.baglantiyi_kontrol_et();
+
+            SqlCommand cmd_ekle = new SqlCommand("INSERT INTO TableCategory (CategoryName) VALUES (@pad)", BaglantiSinifi.baglanti);
+
+            cmd_ekle.Parameters.AddWithValue("@pad", tboxKategoriAdi.Text);
+
+            cmd_ekle.ExecuteNonQuery();
+
+            KategorileriYukle();
+        }
+
+        // Farklı fonksiyonlarda bunu kullanacagım için dışarı açtım.
+        private int secili_id = -1;
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                secili_id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                tboxDuzenle.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Boş bir kısma tıkladınız!");
+            }
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            BaglantiSinifi.baglantiyi_kontrol_et();
+
+            SqlCommand cmd_sil = new SqlCommand("DELETE FROM TableCategory WHERE CategoryID = @pid", BaglantiSinifi.baglanti);
+
+            cmd_sil.Parameters.AddWithValue("@pid", secili_id);
+
+            cmd_sil.ExecuteNonQuery();
+
+            KategorileriYukle();
+        }
+
+        private void btnDuzenle_Click(object sender, EventArgs e)
+        {
+            BaglantiSinifi.baglantiyi_kontrol_et();
+
+            SqlCommand cmd_duzenle = new SqlCommand("UPDATE TableCategory SET CategoryName=@pad WHERE CategoryID=@pid",BaglantiSinifi.baglanti);
+
+            cmd_duzenle.Parameters.AddWithValue("@pad",tboxDuzenle.Text);
+            cmd_duzenle.Parameters.AddWithValue("@pid", secili_id);
+
+            cmd_duzenle.ExecuteNonQuery();
+
+            KategorileriYukle();
         }
     }
 }

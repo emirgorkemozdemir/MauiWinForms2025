@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 namespace MauiWinForms2025
 {
     public class BaglantiSinifi
-    { 
-       // statik yaptıım herhangi bir nesne veya class , uygulama içerisinde asla degişmeden kullanılır.
-       public static SqlConnection baglanti = new SqlConnection("Data Source=.;Initial Catalog=MauiWinFormsDB;Integrated Security=True;TrustServerCertificate=True");
+    {
+        // statik yaptıım herhangi bir nesne veya class , uygulama içerisinde asla degişmeden kullanılır.
+        public static SqlConnection baglanti = new SqlConnection("Data Source=.;Initial Catalog=MauiWinFormsDB;Integrated Security=True;TrustServerCertificate=True");
 
-       public static void baglantiyi_kontrol_et()
+        public static void baglantiyi_kontrol_et()
         {
             if (baglanti.State == System.Data.ConnectionState.Closed)
             {
